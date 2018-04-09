@@ -1,0 +1,6 @@
+service: graphql-dmx
+stage: dev
+datamodel: datamodel.graphql
+secret: mysecret123
+
+cluster: local
