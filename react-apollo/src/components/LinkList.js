@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Link from './Link'
+
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+
 import { LINKS_PER_PAGE } from '../constants'
 
 class LinkList extends Component {
@@ -80,6 +82,7 @@ class LinkList extends Component {
     const skip = isNewPage ? (page - 1) * LINKS_PER_PAGE : 0
     const first = isNewPage ? LINKS_PER_PAGE : 100
     const orderBy = isNewPage ? 'createdAt_DESC' : null
+    
     const data = store.readQuery({
       query: FEED_QUERY,
       variables: { first, skip, orderBy },
