@@ -1,10 +1,27 @@
-# import Link from './generated/prisma.graphql'
+# import Link, LinkSubscriptionPayload ,Vote, LinkOrderByInput from './generated/prisma.graphql'
 
 type Query{
     info: String!
-    feed: [Link!]!
+    # feed: [Link!]!
+    # feed(filter: String): [Link!]!
+    # feed(filter: String, skip: Int, first: Int): [Link!]!
+    # feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): [Link!]!
+    feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): [Feed]!
 }
 
 type Mutation{
     post(url: String!, description: String!): Link!
+    signup(email: String!, password: String!, name: String!): AuthPayload
+    signin(email: String!, password: String!): AuthPayload
+    vote(linkId: ID!): Vote
+}
+
+type Subscription {
+    newLink: LinkSubscriptionPayload
+    newVote: VoteSubscriptionPayload
+}
+
+type Feed{
+    links: [Link!]!
+    count: Int!
 }

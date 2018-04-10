@@ -2,6 +2,13 @@
 const {Prisma}  = require('prisma-binding')
 const {GraphQLServer} = require('graphql-yoga')
 
+
+const Query = require('./resolvers/Query')
+const Mutation = require('./resolvers/Mutation')
+const AuthPayload = require('./resolvers/AuthPayload')
+const Subscription = require('./resolvers/Subscription')
+const Feed  = require('./resolvers/Feed')
+
 // 1 const typeDefs = ` ` 2
 // let links = [
 //     {
@@ -12,6 +19,7 @@ const {GraphQLServer} = require('graphql-yoga')
 // ]
 // 1
 // let idCount = links.length
+/*
 const resolvers = {
     Query: {
         // info: ()=> null
@@ -44,6 +52,15 @@ const resolvers = {
     },
     // 3 Link: {     id: (root) => root.id,     url: (root) => root.url,
     // description: (root) => root.description, }
+}
+*/
+
+const resolvers = {
+    Query,
+    Mutation,
+    AuthPayload,
+    Subscription,
+    Feed,
 }
 
 // 3
