@@ -16,3 +16,5 @@ seed:
   import: seed.graphql
 
 # cluster: ${env:PRISMA_CLUSTER}
+# cluster: local
+cluster: ${env:PRISMA_CLUSTER}
